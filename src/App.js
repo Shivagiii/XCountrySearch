@@ -1,5 +1,5 @@
 import axios from "axios";
-import styles from "./App.module.css";
+import  "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
       console.log(data);
       setData(data);
       setDataS(data);
-    } catch (e) {
-      console.log(e);
+    } catch(e) {
+      console.error(e);
     }
   };
   useEffect(() => {
@@ -40,13 +40,13 @@ function App() {
 
   // <input value={search} onChange={handleChange}/>
   return (
-    <div className={styles.input} >
-      <input value={search} onChange={handleChange} placeholder="Search for countries..." 
+    <div className="input" >
+      <input  type="text" value={search} onChange={handleChange} placeholder="Search for countries..." 
       />
       <br />
-      <div className={styles.container}>
+      <div className="container">
         {dataS.map((country) => (
-          <div className={styles.countryCard} key={country.cca3}>
+          <div className="countryCard" key={country.cca3}>
             <img alt={`Flag of ${country.flags.alt}`} src={country.flags.png} />
             <h2>{country.name.common}</h2>
           </div>
